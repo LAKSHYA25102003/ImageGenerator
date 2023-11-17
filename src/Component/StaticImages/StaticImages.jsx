@@ -4,10 +4,15 @@ import { motion } from "framer-motion";
 function StaticImages() {
   return (
     <div className="py-6 pt-10 mt-6 text-white flex justify-center items-center">
-      <div className="w-[80%] max-[1000px]:w-[100%] flex flex-col gap-10 justify-center items-center px-4">
-        <h1 className="text-center max-[700px]:text-[20px] font-bold text-2xl">
+      <div className="w-[80%] max-[1000px]:w-[100%] flex flex-col gap-14 justify-center items-center px-4">
+        <motion.div
+          initial={{ opacity: 0, x: -200 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.5 }}
+          className="text-center max-[700px]:text-[20px] font-bold text-2xl"
+        >
           Get inspired with our AI-generated images and art gallery
-        </h1>
+        </motion.div>
         <div className="grid w-[100%]  max-[1000px]:grid-cols-1 max-[1488px]:grid-cols-2 grid-cols-3 gap-10 ">
           <motion.div
             initial={{ opacity: 0, y: 100 }}

@@ -1,13 +1,19 @@
 import React from "react";
 import { useContext } from "react";
 import ImageContext from "../../Context/ImageContext";
+import { motion } from "framer-motion";
 
 function SearchForm() {
   const { handleClickOpen, fetchingImage } = useContext(ImageContext);
   return (
     <div className="py-6 text-white flex justify-center items-center">
       <div className="w-[82%] h-14 p-2">
-        <div className=" rounded-md w-full  flex justify-center items-center ">
+        <motion.div
+          initial={{ opacity: 0, x: 200 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.5 }}
+          className=" rounded-md w-full  flex justify-center items-center "
+        >
           {!fetchingImage ? (
             <div
               onClick={handleClickOpen}
@@ -33,7 +39,7 @@ function SearchForm() {
               Generating Image
             </button>
           )}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

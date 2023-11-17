@@ -1,11 +1,18 @@
 import React from "react";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { motion } from "framer-motion";
 
 function Footer() {
   return (
-    <div className="mt-16 pb-16 text-white flex justify-center items-center">
-      <div className="w-[80%] flex flex-col justify-center items-center gap-10">
-        <div className="w-[140px] h-1 bg-slate-500"></div>
+    <div className="mt-16 pb-16 text-white flex flex-col justify-center items-center">
+      <div className="w-[140px] h-1 bg-slate-500"></div>
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 1.5 }}
+        className="w-[80%] flex flex-col justify-center mt-12 items-center gap-10"
+      >
         <div className="flex  flex-col justify-center items-center gap-8">
           <div className="text-4xl font-bold text-white text-center">
             Get In Touch
@@ -24,10 +31,7 @@ function Footer() {
             </button>
           </div>
           <div className="text-white flex justify-center items-center gap-5">
-            <a
-              href="https://portfolio-lakshya.vercel.app/"
-              target="_blank"
-            >
+            <a href="https://portfolio-lakshya.vercel.app/" target="_blank">
               <button className="font-medium text-lg max-[1000px]:text-base cursor-pointer  p-1 px-2 outline-none border-none  hover:scale-[1.1]  rounded-md transition delay-150 duration-300 ease-in-out">
                 My Portfolio
               </button>
@@ -46,7 +50,7 @@ function Footer() {
             </a>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
