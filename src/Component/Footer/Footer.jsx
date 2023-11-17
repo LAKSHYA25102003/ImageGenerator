@@ -23,11 +23,25 @@ function Footer() {
               </a>
             </button>
           </div>
+          <div className="text-white flex justify-center items-center gap-5">
+            <a
+              href="https://portfolio-lakshya.vercel.app/"
+              target="_blank"
+            >
+              <button className="font-medium text-lg max-[1000px]:text-base cursor-pointer  p-1 px-2 outline-none border-none  hover:scale-[1.1]  rounded-md transition delay-150 duration-300 ease-in-out">
+                My Portfolio
+              </button>
+            </a>
+          </div>
           <div className="flex gap-5 justify-center items-center">
             <div className="text-white font-bold text-lg text-center">
               &copy; Lakshya 2023
             </div>
-            <a href="https://www.linkedin.com/in/lakshya-254659204" target="_blank" className="cursor-pointer">
+            <a
+              href="https://www.linkedin.com/in/lakshya-254659204"
+              target="_blank"
+              className="cursor-pointer"
+            >
               <LinkedInIcon />
             </a>
           </div>
