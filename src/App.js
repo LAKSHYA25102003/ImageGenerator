@@ -1,11 +1,14 @@
-import './App.css';
-import Home from './Pages/Home/Home';
+import "./App.css";
+import Home from "./Pages/Home/Home";
+import ImageState from "./Context/ImageState";
 
 function App() {
   return (
-    <div className="App">
-      <Home/>
-    </div>
+    <ImageState>
+      <div className="App">
+        <Home />
+      </div>
+    </ImageState>
   );
 }
 
