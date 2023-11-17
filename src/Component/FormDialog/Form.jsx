@@ -14,34 +14,29 @@ function Form() {
     <React.Fragment>
       <Dialog maxWidth={"lg"} open={open} onClose={handleClose}>
         <DialogTitle>
-          <div className="font-bold text-xl">
-            Comic Panel Text Input{" "}
+          <div className="font-bold text-xl flex flex-col">
+            <span>Comic Panel Text Input </span>
             <span
-              style={{ fontStyle: "italic", color: "#666", fontSize: "14px" }}
-              className=""
+            
+              style={{ fontStyle: "italic", color: "#666" }}
+              className="max-[600px]:text-[12px] text-[14px]"
             >
               (Maximum of 10 comic panels allowed)
             </span>{" "}
           </div>
         </DialogTitle>
-        <DialogContent>
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              m: "auto",
-              width: "800px",
-            }}
-          >
+        <DialogContent className="w-[100%]">
+          <div className="w-[800px] flex flex-col max-[1200px]:w-[600px] max-[900px]:w-[500px] max-[650px]:w-[350px] max-[500px]:w-[100%]">
             <div className="">
               <div className="mb-6 ">
                 <label
                   for="large-input"
-                  className="block mb-2 text-sm font-medium text-gray-900 "
+                  className="block mb-2 text-sm font-bold text-gray-900 "
                 >
                   Comic Panel {ImageStore.length + 1}
                 </label>
                 <textarea
+                  placeholder="Enter text here..."
                   value={text}
                   onChange={(e) => {
                     setText(e.target.value);
@@ -61,7 +56,7 @@ function Form() {
                 Submit
               </button>
             </div>
-          </Box>
+          </div>
         </DialogContent>
       </Dialog>
     </React.Fragment>
