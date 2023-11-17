@@ -13,7 +13,7 @@ function StaticImages() {
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 1.5 }}
+            transition={{ duration: 0.5 }}
             className="ai  relative card-zoom  overflow-hidden shadow-xl w-[100%] min-h-[600px]"
           >
             <div className="ai-image  bg-ai3 card-zoom-image absolute w-full h-full transition-all duration-500 ease-in-out transform bg-center bg-cover  min-h-[400px] flex justify-center items-center "></div>
@@ -33,7 +33,7 @@ function StaticImages() {
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 1.5 }}
             className="ai relative  overflow-hidden  w-[100%] shadow-xl   min-h-[600px]"
           >
             <div className="ai-image bg-ai1  absolute w-full h-full transition-all duration-500 ease-in-out transform bg-center bg-cover  min-h-[400px] flex justify-center items-center "></div>
