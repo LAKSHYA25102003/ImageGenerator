@@ -30,36 +30,41 @@ function ImageState(props) {
   const [text, setText] = useState("");
 
   const fetchImage = async () => {
-    const toastId = toast.loading("Waiting...");
-    setFetchingImage(true);
-    const data = {
-      inputs: text,
-    };
-    setText("");
-    let response = await fetch(
-      "https://xdwvg9no7pefghrn.us-east-1.aws.endpoints.huggingface.cloud",
-      {
-        headers: {
-          Accept: "image/png",
-          Authorization:
-            "Bearer VknySbLLTUjbxXAXCjyfaFIPwUTCeRXbFSOjwRiCxsxFyhbnGjSFalPKrpvvDAaPVzWEevPljilLVDBiTzfIbWFdxOkYJxnOPoHhkkVGzAknaOulWggusSFewzpqsNWM",
-          "Content-Type": "application/json",
-        },
-        method: "POST",
-        body: JSON.stringify(data),
+    try {
+      const toastId = toast.loading("Waiting...");
+      setFetchingImage(true);
+      const data = {
+        inputs: text,
+      };
+      setText("");
+      let response = await fetch(
+        "https://xdwvg9no7pefghrn.us-east-1.aws.endpoints.huggingface.cloud",
+        {
+          headers: {
+            Accept: "image/png",
+            Authorization:
+              "Bearer VknySbLLTUjbxXAXCjyfaFIPwUTCeRXbFSOjwRiCxsxFyhbnGjSFalPKrpvvDAaPVzWEevPljilLVDBiTzfIbWFdxOkYJxnOPoHhkkVGzAknaOulWggusSFewzpqsNWM",
+            "Content-Type": "application/json",
+          },
+          method: "POST",
+          body: JSON.stringify(data),
+        }
+      );
+      const result = await response.blob();
+      const url = URL.createObjectURL(result);
+      if (response.ok) {
+        toast.dismiss(toastId);
+        toast.success("Successfully got the image");
+        addImage(url);
+      } else {
+        toast.dismiss(toastId);
+        toast.error("Error while fetching, try to generate again");
       }
-    );
-    const result = await response.blob();
-    const url = URL.createObjectURL(result);
-    if (response.ok) {
-      toast.dismiss(toastId);
-      toast.success("Successfully got the image");
-      addImage(url);
-    } else {
-      toast.dismiss(toastId);
-      toast.error("Error while fetching");
+      setFetchingImage(false);
+    } catch (error) {
+      console.error("Error fetching data:", error.message);
+      toast.error("Error while fetching, try to generate again");
     }
-    setFetchingImage(false);
   };
 
   const SubmitForm = () => {

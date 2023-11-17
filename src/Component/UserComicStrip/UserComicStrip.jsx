@@ -1,10 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useContext } from "react";
 import ImageContext from "../../Context/ImageContext";
 
+
+
 function UserComicStrip() {
+  
   const { ImageStore } = useContext(ImageContext);
- 
+
   useEffect(() => {}, [ImageStore.length]);
   if (ImageStore.length === 0) return;
   return (
@@ -14,7 +17,7 @@ function UserComicStrip() {
         <div className="grid grid-cols-3 gap-10">
           {ImageStore.map((Image, idx) => {
             return (
-              <div>
+              <div key={idx}>
                 <img
                   className="rounded-md hover:opacity-70 hover:scale-[1.05] transition delay-150 duration-300"
                   src={Image}
