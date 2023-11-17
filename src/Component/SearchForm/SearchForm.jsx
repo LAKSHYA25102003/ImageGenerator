@@ -8,19 +8,10 @@ function SearchForm() {
     <div className="py-6 text-white flex justify-center items-center">
       <div className="w-[82%] h-14 p-2">
         <div className=" rounded-md w-full  flex justify-center items-center ">
-          {/* <div className="px-3  border-r-[.5px] border-r-slate-400">
-            <SearchIcon />
-          </div>
-          <div className="w-full h-full flex justify-center items-center">
-            <input
-              type="text"
-              className="outline-none w-full  rounded-md  bg-slate-500 px-3"
-            />
-          </div> */}
           {!fetchingImage ? (
             <div
               onClick={handleClickOpen}
-              className=" px-3 cursor-pointer  font-bold text-lg hover:scale-[1.02] ease-in-out flex justify-center items-center  bg-cyan-500 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white transition  duration-200 text-center   shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg max-w-md"
+              className=" px-3 max-[1200px]:px-2  max-[1200px]:text-base max-[1200px]:font-semibold cursor-pointer  font-bold text-lg hover:scale-[1.02] ease-in-out flex justify-center items-center  bg-cyan-500 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white transition  duration-200 text-center   shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg max-w-md"
             >
               <button className="h-[49px]">Generate Comic Strip</button>
             </div>

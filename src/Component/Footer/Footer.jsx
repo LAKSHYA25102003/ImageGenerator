@@ -6,7 +6,7 @@ function Footer() {
     <div className="mt-16 pb-16 text-white flex justify-center items-center">
       <div className="w-[80%] flex flex-col justify-center items-center gap-10">
         <div className="w-[140px] h-1 bg-slate-500"></div>
-        <div className="flex flex-col justify-center items-center gap-8">
+        <div className="flex  flex-col justify-center items-center gap-8">
           <div className="text-4xl font-bold text-white text-center">
             Get In Touch
           </div>

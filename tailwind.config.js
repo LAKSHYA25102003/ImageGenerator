@@ -13,6 +13,10 @@ module.exports = {
         ai6:"url('/src/Images/ai6.jpg')",
         ai7:"url('/src/Images/ai7.jpg')"
       },
+      fontFamily:{
+        fav1:"Merienda",
+        fav2:"cursive"
+      }
     },
   },
   plugins: [],
