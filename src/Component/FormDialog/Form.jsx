@@ -1,7 +1,6 @@
 import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
+
 import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import React from "react";
 import { useContext } from "react";
@@ -9,7 +8,7 @@ import ImageContext from "../../Context/ImageContext";
 import Box from "@mui/material/Box";
 
 function Form() {
-  const { open, handleClose, text, setText, SubmitForm,ImageStore } =
+  const { open, handleClose, text, setText, SubmitForm, ImageStore } =
     useContext(ImageContext);
   return (
     <React.Fragment>
@@ -40,7 +39,7 @@ function Form() {
                   for="large-input"
                   className="block mb-2 text-sm font-medium text-gray-900 "
                 >
-                  Comic Panel {ImageStore.length+1}
+                  Comic Panel {ImageStore.length + 1}
                 </label>
                 <textarea
                   value={text}
@@ -57,7 +56,7 @@ function Form() {
             <div className="">
               <button
                 onClick={SubmitForm}
-                className="text-white  rounded-sm bg-cyan-500 p-2 cursor-pointer  font-bold text-lg hover:scale-[1.02] ease-in-out "
+                className="py-2 px-2 outline-none  text-lg hover:scale-[1.02] ease-in-out flex justify-center items-center  bg-cyan-500 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white transition  duration-200 text-center  font-bold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg max-w-md"
               >
                 Submit
               </button>

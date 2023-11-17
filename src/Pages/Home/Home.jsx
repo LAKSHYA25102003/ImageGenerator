@@ -5,6 +5,7 @@ import TopText from '../../Component/TopText/TopText'
 import StaticImages from '../../Component/StaticImages/StaticImages'
 import Form from '../../Component/FormDialog/Form'
 import UserComicStrip from '../../Component/UserComicStrip/UserComicStrip'
+import Footer from '../../Component/Footer/Footer'
 
 function Home() {
   return (
@@ -15,6 +16,7 @@ function Home() {
         <UserComicStrip/>
         <StaticImages/>
         <Form/>
+        <Footer/>
     </div>
   )
 }

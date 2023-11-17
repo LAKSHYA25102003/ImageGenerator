@@ -1,0 +1,40 @@
+import React from "react";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+
+function Footer() {
+  return (
+    <div className="mt-16 pb-16 text-white flex justify-center items-center">
+      <div className="w-[80%] flex flex-col justify-center items-center gap-10">
+        <div className="w-[140px] h-1 bg-slate-500"></div>
+        <div className="flex flex-col justify-center items-center gap-8">
+          <div className="text-4xl font-bold text-white text-center">
+            Get In Touch
+          </div>
+          <div className="text-center text-lg text-slate-400">
+            Get in touch anytime! I'm here, ready to connect
+          </div>
+          <div>
+            <button
+              type="button"
+              className="py-2 px-2 outline-none  text-lg hover:scale-[1.02] ease-in-out flex justify-center items-center  bg-cyan-500 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white transition  duration-200 text-center  font-bold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg max-w-md"
+            >
+              <a href="mailto:llakshya63@gmail.com">
+                Say Hello <span className="wave text-white">👋</span>
+              </a>
+            </button>
+          </div>
+          <div className="flex gap-5 justify-center items-center">
+            <div className="text-white font-bold text-lg text-center">
+              &copy; Lakshya 2023
+            </div>
+            <a href="https://www.linkedin.com/in/lakshya-254659204" target="_blank" className="cursor-pointer">
+              <LinkedInIcon />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Footer;

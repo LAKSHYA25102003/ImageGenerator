@@ -3,9 +3,8 @@ import { motion } from "framer-motion";
 
 
 function StaticImages() {
-  
   return (
-    <div className="py-6 text-white flex justify-center items-center">
+    <div className="py-6 pt-10 mt-6 text-white flex justify-center items-center">
       <div className="w-[80%] flex flex-col gap-10 justify-center items-center">
         <h1 className="text-center font-bold text-2xl">
           Get inspired with our AI-generated images and art gallery

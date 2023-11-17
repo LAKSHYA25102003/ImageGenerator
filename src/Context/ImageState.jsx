@@ -3,16 +3,22 @@ import toast from "react-hot-toast";
 import React, { useState } from "react";
 
 function ImageState(props) {
+  const [fetchingImage, setFetchingImage] = useState(false);
   // Image store
-  let ImageStore = [];
+  const [ImageStore, setImageStore] = useState([]);
+
+  const addImage = (url) => {
+    const updatedImageStore = [...ImageStore, url];
+    setImageStore(updatedImageStore);
+  };
 
   //  for opening the comic panel form
   const [open, setOpen] = useState(false);
   const handleClickOpen = () => {
     if (ImageStore.length >= 10) {
+      toast.error("Maximum of 10 comic panels allowed");
       return;
     }
-    
     setOpen(true);
   };
 
@@ -22,12 +28,14 @@ function ImageState(props) {
 
   // form for text input
   const [text, setText] = useState("");
+
   const fetchImage = async () => {
-    const toastId=toast.loading("Waiting...");
-    console.log("clicked");
+    const toastId = toast.loading("Waiting...");
+    setFetchingImage(true);
     const data = {
       inputs: text,
     };
+    setText("");
     let response = await fetch(
       "https://xdwvg9no7pefghrn.us-east-1.aws.endpoints.huggingface.cloud",
       {
@@ -42,29 +50,28 @@ function ImageState(props) {
       }
     );
     const result = await response.blob();
-    
-    console.log(response);
     const url = URL.createObjectURL(result);
-    ImageStore.push(url);
-    if(response.ok)
-    {
+    if (response.ok) {
       toast.dismiss(toastId);
       toast.success("Successfully got the image");
-    }
-    else
-    {
+      addImage(url);
+    } else {
       toast.dismiss(toastId);
       toast.error("Error while fetching");
     }
+    setFetchingImage(false);
   };
 
   const SubmitForm = () => {
     handleClose();
-    setText("");
-    if (ImageStore.length >= 10) {
+    if (text.trim() === "") {
+      toast.error("Enter input text");
       return;
     }
-
+    if (ImageStore.length >= 10) {
+      toast.error("Maximum of 10 comic panels allowed");
+      return;
+    }
     fetchImage();
   };
 
@@ -78,6 +85,7 @@ function ImageState(props) {
         setText,
         SubmitForm,
         ImageStore,
+        fetchingImage,
       }}
     >
       {props.children}
