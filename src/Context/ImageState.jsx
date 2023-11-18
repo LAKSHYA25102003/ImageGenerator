@@ -80,6 +80,15 @@ function ImageState(props) {
     fetchImage();
   };
 
+  const downloadImage = (url,idx) => {
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("download", `comic_panel${idx+1}.jpg`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <ImageContext.Provider
       value={{
@@ -91,6 +100,7 @@ function ImageState(props) {
         SubmitForm,
         ImageStore,
         fetchingImage,
+        downloadImage
       }}
     >
       {props.children}
