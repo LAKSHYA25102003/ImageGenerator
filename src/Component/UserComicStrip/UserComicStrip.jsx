@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useContext } from "react";
 import ImageContext from "../../Context/ImageContext";
-import DownloadIcon from "@mui/icons-material/Download";
+import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
 function UserComicStrip() {
@@ -15,7 +15,7 @@ function UserComicStrip() {
         <h1 className="text-center font-bold max-[700px]:text-[20px] text-2xl">
           Your Comic Strip
         </h1>
-        <div className="grid max-[1200px]:grid-cols-2 max-[450px]:grid-cols-1 grid-cols-3 gap-10">
+        <div className="grid max-[1000px]:grid-cols-1 max-[1488px]:grid-cols-2 grid-cols-3 gap-10">
           {ImageStore.map((Image, idx) => {
             return (
               <div
@@ -30,17 +30,17 @@ function UserComicStrip() {
                   alt={`image${idx + 1}`}
                 />
                 {showButtons && (
-                  <div className="absolute bottom-1  justify-between items-center w-full px-2  flex">
-                    <div  onClick={()=>{copyImageToClipboard(Image)}}  className="cursor-pointer">
+                  <div className="absolute bottom-[1px]  justify-between items-center w-full px-2  flex">
+                    <div  onClick={()=>{copyImageToClipboard(Image)}}  className="cursor-pointer hover:scale-[1.2] transition delay-50 duration-300">
                       <ContentCopyIcon/>
                     </div>
                     <div
                       onClick={() => {
                         downloadImage(Image, idx);
                       }}
-                      className=" bg-white text-black rounded-[50%] p-1 cursor-pointer"
+                      className=" p-1 cursor-pointer hover:scale-[1.2] transition delay-50 duration-300"
                     >
-                      <DownloadIcon fontSize="small" />
+                      <DownloadForOfflineIcon fontSize="large" />
                     </div>
                   </div>
                 )}
