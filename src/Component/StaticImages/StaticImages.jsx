@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 function StaticImages() {
   return (
     <div className="py-6 pt-10 mt-6 text-white flex justify-center items-center">
-      <div className="w-[80%] max-[1000px]:w-[100%] flex flex-col gap-14 justify-center items-center px-4">
+      <div className="w-[80%] max-[600px]:w-[100%] flex flex-col gap-14 justify-center items-center px-4">
         <motion.div
           initial={{ opacity: 0, x: -200 }}
           animate={{ opacity: 1, x: 0 }}
