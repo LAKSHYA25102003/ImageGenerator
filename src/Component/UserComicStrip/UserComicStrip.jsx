@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { useContext } from "react";
 import ImageContext from "../../Context/ImageContext";
-import ai1 from "../../Images/ai1.jpg";
+
 
 function UserComicStrip() {
   const { ImageStore } = useContext(ImageContext);
@@ -20,7 +20,7 @@ function UserComicStrip() {
               <div key={idx}>
                 <img
                   className="rounded-md hover:opacity-70 hover:scale-[1.05] transition delay-150 duration-300"
-                  src={ai1}
+                  src={Image}
                   alt={`image${idx}`}
                 />
               </div>
