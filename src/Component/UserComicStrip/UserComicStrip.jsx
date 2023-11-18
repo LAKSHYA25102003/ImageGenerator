@@ -1,11 +1,12 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useContext } from "react";
 import ImageContext from "../../Context/ImageContext";
 import DownloadIcon from "@mui/icons-material/Download";
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
 function UserComicStrip() {
-  const { ImageStore,downloadImage } = useContext(ImageContext);
-
+  const { ImageStore, downloadImage,copyImageToClipboard} = useContext(ImageContext);
+  const [showButtons, setShowButtons] = useState(false);
   useEffect(() => {}, [ImageStore.length]);
   if (ImageStore.length === 0) return;
   return (
@@ -17,15 +18,32 @@ function UserComicStrip() {
         <div className="grid max-[1200px]:grid-cols-2 max-[450px]:grid-cols-1 grid-cols-3 gap-10">
           {ImageStore.map((Image, idx) => {
             return (
-              <div className="relative" key={idx}>
+              <div
+                onMouseEnter={() => setShowButtons(true)}
+                onMouseLeave={() => setShowButtons(false)}
+                className="relative"
+                key={idx}
+              >
                 <img
-                  className="rounded-md hover:opacity-70 hover:scale-[1.05] transition delay-150 duration-300"
+                  className="rounded-md hover:opacity-70 hover:scale-[1.05] transition delay-50 duration-300"
                   src={Image}
-                  alt={`image${idx+1}`}
+                  alt={`image${idx + 1}`}
                 />
-                <div onClick={()=>{downloadImage(Image,idx)}} className="absolute bottom-2 right-2  bg-white text-black rounded-[50%] p-1 cursor-pointer">
-                  <DownloadIcon fontSize="small" />
-                </div>
+                {showButtons && (
+                  <div className="absolute bottom-1  justify-between items-center w-full px-2  flex">
+                    <div  onClick={()=>{copyImageToClipboard(Image)}}  className="cursor-pointer">
+                      <ContentCopyIcon/>
+                    </div>
+                    <div
+                      onClick={() => {
+                        downloadImage(Image, idx);
+                      }}
+                      className=" bg-white text-black rounded-[50%] p-1 cursor-pointer"
+                    >
+                      <DownloadIcon fontSize="small" />
+                    </div>
+                  </div>
+                )}
               </div>
             );
           })}

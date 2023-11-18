@@ -80,13 +80,34 @@ function ImageState(props) {
     fetchImage();
   };
 
-  const downloadImage = (url,idx) => {
+  const downloadImage = (url, idx) => {
     const link = document.createElement("a");
     link.href = url;
-    link.setAttribute("download", `comic_panel${idx+1}.jpg`);
+    link.setAttribute("download", `comic_panel${idx + 1}.jpg`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+  };
+
+  const copyImageToClipboard = (blobUrl) => {
+    
+    fetch(blobUrl)
+      .then((response) => response.blob())
+      .then((blob) => {
+        const clipboardItem = new ClipboardItem({ 'image/png': blob });
+
+        navigator.clipboard.write([clipboardItem])
+          .then(() => {
+            toast.success("Image copied successfully")
+          })
+          .catch((error) => {
+            console.error('Error copying image:', error);
+            toast.error("Error copying image")
+          });
+      })
+      .catch((error) => {
+        console.error('Error fetching blob data:', error);
+      });
   };
 
   return (
@@ -100,7 +121,8 @@ function ImageState(props) {
         SubmitForm,
         ImageStore,
         fetchingImage,
-        downloadImage
+        downloadImage,
+        copyImageToClipboard
       }}
     >
       {props.children}
